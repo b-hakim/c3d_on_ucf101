@@ -74,7 +74,7 @@ if __name__ == '__main__':
     #SelectFramesFromVideoButNotIn('/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning/test_01.lst',
     #                  '/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning/train_01.lst',
     #                  '/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
-    SelectFramesFromVideo(args.dataset_dir, args.label_path, args.outputdir)
+    SelectFramesFromVideo(args.dataset_dir, args.label_path, args.output_dir)
 
     #'/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
 
