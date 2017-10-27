@@ -42,7 +42,7 @@ def select_all_frames_from_video(video_path, output_path):
     video_name = utl.get_file_name_from_path_without_extention(video_path)
     video_category = utl.get_direct_folder_containing_file(video_path)
 
-    save_frame_path = os.path.join(output_path, video_category, + video_name )
+    save_frame_path = os.path.join(output_path, video_category, video_name )
 
     vidcap = cv2.VideoCapture(video_path)
     success, image = vidcap.read()
