@@ -61,6 +61,7 @@ def SelectFramesFromVideoButNotIn(videos_path, video_already_exists, output_path
             sffv.select_all_frames_from_video(video_from_to[0].replace('frm', 'video')+'.avi', output_path)
 
 def ParseArgs():
+
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("dataset_dir", help="path to the input videos dir")
