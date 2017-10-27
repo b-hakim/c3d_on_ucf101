@@ -48,7 +48,7 @@ def select_all_frames_from_video(video_path, output_path):
     success, image = vidcap.read()
     count = 0;
 
-    if not os.path.exists(output_path + video_category + '/'):
+    if not os.path.exists(output_path + '/'+ video_category + '/'):
         os.mkdir(output_path + '/' + video_category + '/')
 
     if not os.path.exists(save_frame_path):
