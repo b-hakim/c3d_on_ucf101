@@ -7,6 +7,7 @@ Created on Mon May 15 21:45:02 2017
 """
 import SaveFrameFromVideo as sffv
 import Util as utl
+import os
 
 #def SelectFramesFromVideo(videos_path, output_path):
 def SelectFramesFromVideo(dataset_dir, videos_path, output_path):
