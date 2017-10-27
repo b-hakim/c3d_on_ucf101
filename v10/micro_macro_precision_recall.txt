@@ -1,0 +1,6 @@
+macro precision: 0.79000349339
+macro recall: 0.78976591382
+micro precision: 0.801669057243
+micro recall: 0.801669057243
+macro f1-score: 0.78988468574
+micro f1-score: 0.801669057243
