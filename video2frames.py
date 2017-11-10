@@ -11,7 +11,6 @@ import os
 
 #def SelectFramesFromVideo(videos_path, output_path):
 def SelectFramesFromVideo(dataset_dir, videos_path, output_path):
-    lines = []
     last_video_name = ''
 
     with open(videos_path) as file:
@@ -28,6 +27,36 @@ def SelectFramesFromVideo(dataset_dir, videos_path, output_path):
 
             #sffv.select_all_frames_from_video(video_from_to[0].replace('frm', 'video')+'.avi', output_path)
             sffv.select_all_frames_from_video(os.path.join(dataset_dir,video_from_to[0]), output_path)
+
+def ValidateAllFramesInVideoAreExtracted(dataset_dir, videos_path, output_path):
+
+    lst_vid_issues = []
+
+    with open(videos_path) as file:
+        for line in file:
+            line = line.strip()
+            video_from_to = line.split()
+
+            video_name = utl.get_file_name_from_path_with_extention(video_from_to[0])
+
+            if video_name == last_video_name:
+                continue
+            else:
+                last_video_name = video_name
+
+            #sffv.select_all_frames_from_video(video_from_to[0].replace('frm', 'video')+'.avi', output_path)
+            video_path = os.path.join(dataset_dir,video_from_to[0])
+
+            length = utl.get_num_frames(video_path)
+            video_name = utl.get_file_name_from_path_without_extention(video_path)
+            video_category = utl.get_direct_folder_containing_file(video_path)
+            save_frame_path = os.path.join(output_path, video_category, video_name)
+            save_frame_full_path = save_frame_path + '/{:06}'.format(length) + ".jpg"
+
+            if not os.path.exists(save_frame_full_path):
+                lst_vid_issues += [video_from_to[0]]
+
+    print lst_vid_issues
 
 def SelectFramesFromVideoButNotIn(videos_path, video_already_exists, output_path):
     lines = []
@@ -75,8 +104,8 @@ if __name__ == '__main__':
     #SelectFramesFromVideoButNotIn('/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning/test_01.lst',
     #                  '/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning/train_01.lst',
     #                  '/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
-    SelectFramesFromVideo(args.dataset_dir, args.label_path, args.output_dir)
-
+    #SelectFramesFromVideo(args.dataset_dir, args.label_path, args.output_dir)
+    ValidateAllFramesInVideoAreExtracted(args.dataset_dir, args.label_path, args.output_dir)
     #'/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
 
 

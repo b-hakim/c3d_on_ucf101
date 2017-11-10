@@ -22,6 +22,13 @@ def is_same_group(file1_path, file2_path):
     return file1_path[0:-2] == file2_path[0:-2]
 
 
+def get_num_frames(video_path):
+    import cv2
+
+    cap = cv2.VideoCapture(video_path)
+    length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    return length
+
 # test get_file_name_from_path_without_extension
 # print 'file without extension: ', \
 #    get_file_name_from_path_without_extention('Mainfolder/foldername/filename.avi')
