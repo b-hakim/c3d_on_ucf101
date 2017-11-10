@@ -14,14 +14,30 @@ def generate_input_file(ucf101_input_path, base_dir_frm, output_file_path, isTes
 
         dir_name = utl.get_direct_folder_containing_file(line.split()[0])
         clip_name = utl.get_file_name_from_path_without_extention(line.split()[0])
-
         clip_full_path = os.path.join(base_dir_frm, dir_name, clip_name)
 
         pics = utl.get_all_files_with_extenstion(clip_full_path, '.jpg')
         n = int(len(pics)/16)*16
 
         for i in range(1, n, 16):
-            output_lines += [clip_full_path + ' ' + str(i)+ ' ' + line.split()[1] + '\n']
+            if isTest:
+                output_lines += [clip_full_path + ' ' + str(i)+ ' 0 ' + '\n']
+            else:
+                output_lines += [clip_full_path + ' ' + str(i)+ ' ' + line.split()[1] + '\n']
 
     with open(output_file_path, 'w') as file_writer:
         file_writer.writelines(output_lines)
+
+def ParseArgs():
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("ucf101_input_file_path", help="path to the input file")
+    parser.add_argument("base_dir_frm", help="path to the frm dir path")
+    parser.add_argument("output_file_path", help="path to the output file")
+    parser.add_argument("isTest", help="is the input train or test file")
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    args = ParseArgs()
+    generate_input_file(args.ucf101_input_file_path, args.base_dir_frm, args.output_file_path, args.isTest)
