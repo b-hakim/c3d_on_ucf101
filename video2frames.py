@@ -66,6 +66,7 @@ def GetFramesFromVideosIn(dataset_dir, output_path, ls):
         video_from_to = line
         print "getting frames for:", video_from_to
         sffv.select_all_frames_from_video(os.path.join(dataset_dir,video_from_to), output_path)
+        break
 
 def SelectFramesFromVideoButNotIn(videos_path, video_already_exists, output_path):
     lines = []
