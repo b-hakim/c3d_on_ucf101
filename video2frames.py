@@ -29,7 +29,7 @@ def SelectFramesFromVideo(dataset_dir, videos_path, output_path):
             sffv.select_all_frames_from_video(os.path.join(dataset_dir,video_from_to[0]), output_path)
 
 def ValidateAllFramesInVideoAreExtracted(dataset_dir, videos_path, output_path):
-
+    last_video_name = ''
     lst_vid_issues = []
 
     with open(videos_path) as file:
