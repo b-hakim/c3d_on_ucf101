@@ -4,7 +4,7 @@ import os
 def generate_input_file(ucf101_input_path, base_dir_frm, output_file_path, isTest):
 
     lines = []
-    print isTest
+    print type(isTest)
 
     with open(ucf101_input_path) as file:
         lines = file.readlines()
