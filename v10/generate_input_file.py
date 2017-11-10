@@ -21,9 +21,9 @@ def generate_input_file(ucf101_input_path, base_dir_frm, output_file_path, isTes
 
         for i in range(1, n, 16):
             if isTest:
+                print line.split()[1]
                 output_lines += [clip_full_path + ' ' + str(i)+ ' 0 ' + '\n']
             else:
-                print line.split()[1]
                 output_lines += [clip_full_path + ' ' + str(i)+ ' ' + line.split()[1] + '\n']
 
     with open(output_file_path, 'w') as file_writer:
