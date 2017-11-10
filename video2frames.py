@@ -54,6 +54,7 @@ def ValidateAllFramesInVideoAreExtracted(dataset_dir, videos_path, output_path):
             save_frame_full_path = save_frame_path + '/{:06}'.format(length) + ".jpg"
 
             if not os.path.exists(save_frame_full_path):
+                print save_frame_full_path, "doesnt exists"
                 lst_vid_issues += [video_from_to[0]]
 
     print lst_vid_issues
