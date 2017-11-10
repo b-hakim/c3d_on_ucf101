@@ -4,6 +4,7 @@ import os
 def generate_input_file(ucf101_input_path, base_dir_frm, output_file_path, isTest):
 
     lines = []
+    print isTest
 
     with open(ucf101_input_path) as file:
         lines = file.readlines()
@@ -40,7 +41,6 @@ def ParseArgs():
 
 if __name__ == '__main__':
     args = ParseArgs()
-    args.isTest = bool(args.isTest)
-    generate_input_file(args.ucf101_input_file_path, args.base_dir_frm, args.output_file_path, bool(args.isTest))
+    generate_input_file(args.ucf101_input_file_path, args.base_dir_frm, args.output_file_path, args.isTest)
 
 #python v10/generate_input_file.py "/root/repos/c3d_on_ucf101/ucfTrainTestlist/trainlist01.txt" "/root/sources/C3D/C3D-v1.0/data/ucf101/frm/" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/input_list_frm_train01.txt", False
