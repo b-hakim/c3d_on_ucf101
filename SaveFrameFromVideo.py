@@ -61,7 +61,7 @@ def select_all_frames_from_video(video_path, output_path):
         save_frame_full_path = save_frame_path + '/{:06}'.format(count) + ".jpg"
         cv2.imwrite(save_frame_full_path, image)  # save frame as JPEG file
         success, image = vidcap.read()
-
+    print "last frame saved:", count
 #-----------------------------------------------------------------------------------------------
 
 #select_frame_from_video('/home/kasparov092/sources/c3d/data/UCF-101/ApplyEyeMakeup/v_ApplyEyeMakeup_g01_c01.avi',
