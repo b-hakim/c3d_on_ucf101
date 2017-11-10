@@ -24,10 +24,16 @@ def is_same_group(file1_path, file2_path):
 
 def get_num_frames(video_path):
     import cv2
+    vidcap = cv2.VideoCapture(video_path)
+    success, image = vidcap.read()
+    count = 0;
 
-    cap = cv2.VideoCapture(video_path)
-    length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    return length
+    while success:
+        count += 1
+        success, image = vidcap.read()
+
+    #length = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
+    return count #length
 
 # test get_file_name_from_path_without_extension
 # print 'file without extension: ', \
