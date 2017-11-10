@@ -58,6 +58,42 @@ def ValidateAllFramesInVideoAreExtracted(dataset_dir, videos_path, output_path):
 
     print lst_vid_issues
 
+def GetFramesFromVideosIn(dataset_dir, videos_path, output_path):
+    ls =  ['Basketball/v_Basketball_g16_c01.avi', 'Basketball/v_Basketball_g16_c02.avi',
+     'Basketball/v_Basketball_g16_c03.avi', 'Basketball/v_Basketball_g16_c04.avi',
+     'Basketball/v_Basketball_g16_c05.avi', 'Basketball/v_Basketball_g16_c06.avi',
+     'Basketball/v_Basketball_g17_c02.avi', 'Basketball/v_Basketball_g18_c03.avi',
+     'Basketball/v_Basketball_g18_c04.avi', 'Basketball/v_Basketball_g18_c05.avi', 'Biking/v_Biking_g20_c01.avi',
+     'Biking/v_Biking_g20_c07.avi', 'Billiards/v_Billiards_g17_c01.avi', 'GolfSwing/v_GolfSwing_g19_c06.avi',
+     'GolfSwing/v_GolfSwing_g21_c05.avi', 'GolfSwing/v_GolfSwing_g21_c06.avi', 'HorseRace/v_HorseRace_g20_c01.avi',
+     'HorseRiding/v_HorseRiding_g15_c01.avi', 'HorseRiding/v_HorseRiding_g16_c05.avi',
+     'HorseRiding/v_HorseRiding_g16_c06.avi', 'JavelinThrow/v_JavelinThrow_g19_c01.avi',
+     'JugglingBalls/v_JugglingBalls_g18_c01.avi', 'JugglingBalls/v_JugglingBalls_g18_c02.avi',
+     'JugglingBalls/v_JugglingBalls_g18_c03.avi', 'JugglingBalls/v_JugglingBalls_g18_c04.avi',
+     'JumpingJack/v_JumpingJack_g20_c01.avi', 'JumpingJack/v_JumpingJack_g20_c03.avi',
+     'JumpingJack/v_JumpingJack_g20_c04.avi', 'JumpRope/v_JumpRope_g17_c01.avi', 'JumpRope/v_JumpRope_g17_c02.avi',
+     'JumpRope/v_JumpRope_g17_c03.avi', 'JumpRope/v_JumpRope_g17_c04.avi', 'PlayingGuitar/v_PlayingGuitar_g19_c05.avi',
+     'PlayingTabla/v_PlayingTabla_g15_c01.avi', 'PlayingTabla/v_PlayingTabla_g15_c03.avi',
+     'PlayingTabla/v_PlayingTabla_g15_c04.avi', 'PullUps/v_PullUps_g16_c03.avi', 'PullUps/v_PullUps_g20_c04.avi',
+     'SoccerJuggling/v_SoccerJuggling_g16_c01.avi', 'SoccerJuggling/v_SoccerJuggling_g16_c02.avi',
+     'SoccerJuggling/v_SoccerJuggling_g16_c03.avi', 'SoccerJuggling/v_SoccerJuggling_g16_c04.avi',
+     'SoccerJuggling/v_SoccerJuggling_g16_c07.avi', 'SoccerJuggling/v_SoccerJuggling_g20_c05.avi',
+     'SoccerJuggling/v_SoccerJuggling_g21_c01.avi', 'SoccerJuggling/v_SoccerJuggling_g21_c02.avi',
+     'SoccerJuggling/v_SoccerJuggling_g21_c03.avi', 'SoccerJuggling/v_SoccerJuggling_g21_c04.avi',
+     'TennisSwing/v_TennisSwing_g16_c01.avi', 'TennisSwing/v_TennisSwing_g16_c02.avi',
+     'TennisSwing/v_TennisSwing_g16_c03.avi', 'TennisSwing/v_TennisSwing_g16_c04.avi',
+     'TennisSwing/v_TennisSwing_g16_c05.avi', 'TennisSwing/v_TennisSwing_g16_c06.avi',
+     'TennisSwing/v_TennisSwing_g18_c05.avi', 'TennisSwing/v_TennisSwing_g19_c01.avi',
+     'TennisSwing/v_TennisSwing_g20_c02.avi', 'TrampolineJumping/v_TrampolineJumping_g15_c05.avi',
+     'WalkingWithDog/v_WalkingWithDog_g21_c03.avi']
+
+    last_video_name = ''
+
+    for line in ls:
+        line = line.strip()
+        video_from_to = line
+        sffv.select_all_frames_from_video(os.path.join(dataset_dir,video_from_to), output_path)
+
 def SelectFramesFromVideoButNotIn(videos_path, video_already_exists, output_path):
     lines = []
     last_video_name = ''
@@ -105,7 +141,9 @@ if __name__ == '__main__':
     #                  '/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning/train_01.lst',
     #                  '/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
     #SelectFramesFromVideo(args.dataset_dir, args.label_path, args.output_dir)
-    ValidateAllFramesInVideoAreExtracted(args.dataset_dir, args.label_path, args.output_dir)
+    #ValidateAllFramesInVideoAreExtracted(args.dataset_dir, args.label_path, args.output_dir)
+    GetFramesFromVideosIn(args.dataset_dir, args.label_path, args.output_dir)
+
     #'/home/kasparov092/sources/c3d/v1.0/data/ucf101/frm/')
 
 
