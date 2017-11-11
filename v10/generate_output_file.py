@@ -36,10 +36,21 @@ def generate_output_file(input_path, output_folder, output_prefix, output_file):
 #                     'output_train/c3d/',
 #                     '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/output_train_list_prefix.txt')
 
+def ParseArgs():
 
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file", help="path to the input file")
+    parser.add_argument("output_folder", help="path to the output dir path")
+    parser.add_argument("output_prefix", help="path to the output file")
+    parser.add_argument("output_file", help="the file path to produce")
+    return parser.parse_args()
 
+if __name__ == '__main__':
+    args = ParseArgs()
+    generate_output_file(args.input_file,
+                     args.output_folder,
+                     args.output_prefix,
+                     args.output_file)
 
-generate_output_file('/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.validated.lst',
-                     '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/',
-                     'output_test/c3d/',
-                     '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/output_test_minus_sampled_list_prefix.txt')
+# python generate_output_file.py "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/input_list_frm_train01.txt" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/" "output/c3d/" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/output_list_prefix_train01.txt "
