@@ -53,4 +53,4 @@ if __name__ == '__main__':
                      args.output_prefix,
                      args.output_file)
 
-# python generate_output_file.py "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/input_list_frm_train01.txt" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/" "output/c3d/" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/output_list_prefix_train01.txt "
+# python v10/generate_output_file.py "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/input_list_frm_train01.txt" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/" "output/c3d/" "/root/sources/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/output_list_prefix_train01.txt"
