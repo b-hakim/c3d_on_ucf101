@@ -55,6 +55,6 @@ if __name__ == '__main__':
     # validate_dataset('/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.lst',
     #                  16,
     #              '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.validated2.lst')
-    validate_dataset(args.input_file, args.number, args.output_file)
+    validate_dataset(args.input_file, int(args.number), args.output_file)
 
 
