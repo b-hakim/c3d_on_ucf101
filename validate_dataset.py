@@ -41,7 +41,20 @@ def validate_dataset(dataset_pathes, video_clip_size, output_file_path):
 
 #validate_dataset('/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning_trial/test_01.categorized.lst', 16,
 #                 '/home/kasparov092/sources/c3d/v1.0/examples/c3d_finetuning_trial/test_01.categorized.validated.lst')
+def ParseArgs():
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file", help="path to the input videos dir")
+    parser.add_argument("number", help="path to the train/test file")
+    parser.add_argument("output_file", help="path to the output frames dir")
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    args = ParseArgs()
+    # validate_dataset('/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.lst',
+    #                  16,
+    #              '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.validated2.lst')
+    validate_dataset(args.input_file, args.number, args.output_file)
 
 
-validate_dataset('/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.lst', 16,
-                 '/home/kasparov092/sources/c3d/v1.0/examples/c3d_feature_extraction/c3d_sports_finetuned_ucf_model/test_01.full_minus_categorized.validated2.lst')
