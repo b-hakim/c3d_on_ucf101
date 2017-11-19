@@ -36,7 +36,7 @@ def adjust_feature_name(_feature_layer):
 
     for i, s in enumerate(_feature_layer):
         feature_layer = feature_layer + s
-        lst_feature_layer += ["." + s + ".txt"]
+        lst_feature_layer += ["." + s] # + '.txt'
 
         if i != len(_feature_layer)-1:
             feature_layer+="+"

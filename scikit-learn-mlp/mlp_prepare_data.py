@@ -21,7 +21,7 @@ def get_training_matrix(output_features, features_directory, class_index, featur
     features_file_pathes_used = {}
 
     for line in lines:
-        full_line = features_directory+line.rstrip()
+        full_line = line.rstrip() # features_directory +
         features_file_pathes_used[full_line] = []
 
         for f in features_used:
@@ -87,6 +87,7 @@ def make_experiments(num_hidden_layers, _feature_layer, solver, force_replace, s
         x, y = get_training_matrix(output_features, features_directory, class_index, lst_feature_layer)
         print 'all training data fit into memory, press a key to continue'
         input()
+        return
 
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=42)
 
