@@ -5,6 +5,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import Utility as utl
 import os
+import array
 
 
 def one_hot_encoding_class(class_name, class_index):
@@ -12,6 +13,18 @@ def one_hot_encoding_class(class_name, class_index):
     out = np.zeros(101)
     out[i-1] = 1
     return out
+
+
+def load_features(feature_file):
+        with  open(feature_file, "rb") as f:
+            line = f.read()
+
+        (n, c, l, h, w) = array.array("i", line[:20])
+        feature_vec = np.array(array.array("f", line[20:]))
+
+        # print  (n, c, l, h, w)
+        return feature_vec
+
 
 def get_training_matrix(output_features, features_directory, class_index, features_used=['.fc8.txt']):
     lines = []
@@ -34,8 +47,10 @@ def get_training_matrix(output_features, features_directory, class_index, featur
         sub_features = []
 
         for sub_feature in features_file_pathes_used[feature_set_key]:
-            with open(feature_set_key + sub_feature) as fil:
-                sub_features += map(lambda x: float(x), fil.readline().split(',')[5:])
+            sub_feature += load_features(feature_set_key+sub_feature)
+            #
+            # with open(feature_set_key + sub_feature) as fil:
+            #     sub_features += map(lambda x: float(x), fil.readline().split(',')[5:])
 
         if sub_features == []:
             passes += 1
