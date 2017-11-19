@@ -75,7 +75,7 @@ def make_experiments(num_hidden_layers, _feature_layer, solver, force_replace, s
         if not server_path:
             class_index_path = '/home/kasparov092/sources/c3d/v1.0/data/ucf101/ucfTrainTestlist/classInd.txt'
         else:
-            class_index_path = '/root//home/kasparov092/sources/c3d/v1.0/data/ucf101/ucfTrainTestlist/classInd.txt'
+            class_index_path = '/root/repos/c3d_on_ucf101/ucfTrainTestlist/classInd.txt'
 
         class_index = {}
 
