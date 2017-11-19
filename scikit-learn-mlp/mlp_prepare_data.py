@@ -48,10 +48,7 @@ def get_training_matrix(output_features, features_directory, class_index, featur
 
         for sub_feature in features_file_pathes_used[feature_set_key]:
             sub_f = load_features(feature_set_key+sub_feature)
-            print sub_f.shape
-            print type(sub_f)
-            print sub_f[0]
-            sub_feature += [sub_f]
+            sub_features += [sub_f]
             #
             # with open(feature_set_key + sub_feature) as fil:
             #     sub_features += map(lambda x: float(x), fil.readline().split(',')[5:])
@@ -61,7 +58,7 @@ def get_training_matrix(output_features, features_directory, class_index, featur
             continue
 
         ret_x.append(sub_features)
-        ret_y.append(one_hot_encoding_class(feature_set_key[85:feature_set_key[85:].index('_')+85],
+        ret_y.append(one_hot_encoding_class(feature_set_key[72:feature_set_key[72:].index('_')+72],
                                             class_index))
     print 'passs:', passes
     return np.array(ret_x), np.array(ret_y)
