@@ -47,7 +47,11 @@ def get_training_matrix(output_features, features_directory, class_index, featur
         sub_features = []
 
         for sub_feature in features_file_pathes_used[feature_set_key]:
-            sub_feature += [load_features(feature_set_key+sub_feature)]
+            sub_f = load_features(feature_set_key+sub_feature)
+            print sub_f.shape
+            print type(sub_f)
+            print sub_f[0]
+            sub_feature += [sub_f]
             #
             # with open(feature_set_key + sub_feature) as fil:
             #     sub_features += map(lambda x: float(x), fil.readline().split(',')[5:])
